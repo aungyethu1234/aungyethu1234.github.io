@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result</title>
+    <form name="myForm">
+    <label for="html">HTML : &nbsp; &nbsp; </label>
+    <input type="number" name="html" id="html" placeholder="Enter Your Mark">
+    <br><br>
+    <label for="css">CSS : &#8195; &nbsp; </label>
+    <input type="number" name="css" id="css" placeholder="Enter Your Mark">
+    <br><br>
+    <label for="js">JavaScript</label>
+    <input type="number" name="js" id="js" placeholder="Enter Your Mark">
+    <br><br>
+    <button type="button" onclick="result()">Result</button>
+</form>
+</head>
+<body>
+    <script>
+        function result(){
+        let html = document.myForm.html.value;
+        let css = document.myForm.css.value;
+        let js = document.myForm.js.value;
+
+        if (html >= 50 && css >= 50 && js >= 50) {
+            if(html > 80 || css > 80 || js >80){
+            document.write("Congradulation! You Pass with the Star!")}
+            else{
+                document.write("You Pass Exam!")
+            }
+
+             }else{
+            document.write("You Fail Exam");
+
+        }
+        
+    }
+    </script>
+</body>
+</html>
