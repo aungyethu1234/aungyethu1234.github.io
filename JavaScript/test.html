@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+            text-align : center;
+            font-size : 40px;
+        }
+        small{
+            color : red;
+        }
+        .error{
+            border-color : red;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Calculator</h1>
+    <label for="num1">Number 1 :</label>
+    <input type="number"name='num1' id="num1">
+    <small id="num1Err"></small>
+    <br><br>
+    <label for="num2">Number 2 :</label>
+    <input type="number" name="num2" id="num2">
+    <small id="num2Err"></small>
+    <br><br>
+    <label for="result">Result : &#8195;</label>
+    <input type="number" name="result" id="result" readonly>
+    <br><br>
+    <button type="button" name="add" id="add" onclick="add()">Add</button>
+    <script>
+        function add(){
+            let numbers =formValidation();
+            let result = Number(numbers.num1)+Number(numbers.num2);
+            document.querySelector('#result').value = result;
+            
+        }
+        function formValidation(){
+            let num1 = document.querySelector('#num1').value;
+            let num2 = document.querySelector('#num2').value;
+            let numOne = document.querySelector('#num1');
+            let numTwo = document.querySelector('#num2');
+            let num1Err = document.querySelector('#num1Err');
+            let num2Err = document.querySelector('#num2Err');
+            
+
+            if(num1 == '' || num2 == ''){
+                if(num1 == ''){
+                   showError(num1Err,numOne,'Num 1 is Require');
+                }
+                if(num2 == ''){
+                    showError(num2Err,numTwo,'Num 2 is Require');
+                    
+                }
+                function showError(num,numInput,message){
+                    num.innerText = message;
+                    numInput.setAttribute('class','error');
+
+            }
+
+            }else{
+                num1Err.innerText ='';
+                num2Err.innerText ='';
+                numOne.removeAttribute('class');
+                numTwo.removeAttribute('class');
+                return {num1,num2};
+                
+
+            }
+        }
+    </script>
+</body>
+</html>

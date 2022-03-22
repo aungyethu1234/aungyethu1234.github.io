@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .border{
+            border-color : red;
+        }
+        #error{
+            color : red;
+            margin-left:60px;
+        }
+        .main{
+            
+            text-align:center;
+        }
+        .head{
+            
+            display:inline-block;
+            background-color: skyblue;
+            letter-spacing: 2px;
+        }
+        .headTwo{
+            margin-top:40px;
+        }
+        .label{
+            font-size:20px;
+        }
+        label{
+            color:blue;
+        }
+        .main button[type="button"]{
+            padding:8px 16px;
+            margin-left: 65px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .main button[type="button"]:hover{
+            cursor:pointer;
+            background-color: skyblue;
+            color:white;
+        }
+        #number{
+            width:200px;
+            height:20px;
+        }
+        #resBorder{
+            border:4px ridge skyblue;
+            width:200px;
+            margin:0 auto;
+            padding:20px 200px 20px 2px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <h1 class="head">Multiply Table</h1>
+    <h2 class="headTwo">Type Any Number You Want To Multiply!</h2>
+    <label for="number" class="label">Number :</label>
+    <input type="number" name="number" id="number" min="1" max="4">
+    <br>
+    <small id="error"></small>
+    <br><br>
+    <button type="button" id="btn" onclick="multiply()">Show Result</button>
+    <br><br>
+    <!-- <ul id="ul">
+    </ul> -->
+    <div class="answer"></div>
+    </div>
+
+
+<script>
+    
+    let inpErr = document.querySelector('#number');
+    let error = document.querySelector('#error');
+
+    function multiply(){
+        validate();
+    }
+    function validate(){
+        let number = document.querySelector('#number').value;
+        let answer = document.querySelector('.answer');
+
+        if(number == ''){
+            answer.removeAttribute('id');
+            answer.innerHTML ="";
+            showErr();
+        }else{
+            answer.setAttribute('id','resBorder');
+            inpErr.removeAttribute('class');
+            error.innerHTML = '';
+            // let li = document.createElement('li');
+            // let ul = document.querySelector('#ul');
+            let value = [1,2,3,4,5,6,7,8,9,10,11,12];
+            result ='';
+            for(let multi of value){
+                result += `${number} x ${multi} = ${number*multi} <br>`;
+            }
+            answer.innerHTML = result;
+            
+        }
+    }
+    function showErr(){
+        inpErr.setAttribute('class','border');
+        error.innerHTML = 'Number is Require';
+        answer.removeAttribute('id');
+        answer.innerHTML ="";
+        
+        
+    }
+</script>
+</body>
+</html>

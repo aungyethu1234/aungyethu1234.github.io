@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 4</title>
+</head>
+<body>
+    <label for="name">Name :</label>
+    <input type="text" name="name" id="name">
+    <br><br>
+    <label for="age">Age :</label>
+    <input type="number" name="age" id="age">
+    <br><br>
+    <button onclick="showTable()"> Show Table</button>
+    <br><br>
+    <table border="1" cellspacing="0" cellpadding="20">
+        <thead>
+            <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Age</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <br><br>
+    <button onclick="showTable()">Show</button>
+    <script>
+        //let j =1 ;
+        // function showTable(){
+        //     let data =[{name: 'Mg Mg', age: 24},
+        //     {name:'Kyaw Kyaw', age: 25},
+        //     {name: 'Mya Mya',age:30}];
+        //     console.log(data);
+        //     let tbody = document.querySelector('#tbody');
+        //         let myData = '';
+        //     for(let value of data){
+        //        myData += `<tr>
+        //        <td>${j++}</td>
+        //        <td>${value.name}</td>
+        //        <td>${value.age}</td>
+        //        </tr>`
+                
+        //     }
+        //     console.log(myData);
+        //     tbody.innerHTML = myData;
+        // }
+        let j = 1;
+        function showTable(){
+            
+            let name = document.querySelector('#name').value;
+            let age = document.querySelector('#age').value;
+            let tbody = document.querySelector('#tbody');
+            tbody.innerHTML += `<tr>
+            <td>${j++}</td>
+            <td>${name}</td>
+            <td>${age}</td>
+            </tr>`
+
+
+        }
+    </script>
+</body>
+</html>

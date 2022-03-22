@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cele Photo Show</title>
+    <style>
+        h1{
+            color: green;
+            text-align: center;
+            font-size : 40px;
+        }
+        label[for='searchIn']{
+            color:blue;
+            text-transform: uppercase
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Cele Photo Show</h1>
+    <form>
+    <label for="searchIn">Image Search :</label>
+    <input type="text" name="searchIn" id="searchIn">
+    <button type="button" onclick="result()" >Search</button>
+    </form>
+    <br><br>
+    <img  alt="" id="img1" onmouseover="big(img1)" onmouseout="normal(img1)">
+    <img  alt="" id="img2" onmouseover="big(img2)" onmouseout="normal(img2)">
+    <img  alt="" id="img3" onmouseover="big(img3)" onmouseout="normal(img3)">
+
+
+
+    <script>
+        function result(){
+            formValidation();
+        }
+        function formValidation(){
+            let searchIn = document.querySelector('#searchIn').value;
+            let Img1 = document.querySelector('#img1');
+            let Img2 = document.querySelector('#img2');
+            let Img3 = document.querySelector('#img3');
+            
+            if(searchIn == ''){
+                alert('Search Keyword Require');
+                    img1.removeAttribute('src');
+                    img2.removeAttribute('src');
+                    img3.removeAttribute('src');
+                }else if(searchIn == 'Thinzar Wint Kyaw' || searchIn =='thinzar wint kyaw' || searchIn == 'thinzar'){
+                   
+                   Img1.setAttribute('src','thinzar1.jpeg');
+                   
+                   Img2.setAttribute('src','thinzar2.jpeg');
+                   
+                   Img3.setAttribute('src','thinzar3.jpeg');
+                }else{
+                    alert('cannot find your keywords');
+                    img1.removeAttribute('src');
+                    img2.removeAttribute('src');
+                    img3.removeAttribute('src');
+                    
+
+                }
+        
+                
+        
+            
+            
+        }
+        function big(img){
+                    // alert('onmouse over');
+                     img.setAttribute('width','400px');
+                     img.setAttribute('height','400px');
+        }
+        function normal(img){
+                    img.removeAttribute('width');
+                    img.removeAttribute('height');
+
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 3</title>
+</head>
+<body>
+    <h1 id="header">CSS width DOM</h1>
+    <img src="img1.png" alt="img1" width="220" height="220" id="img1" >
+    <br><br>
+    <button onclick="clickChange()">Click</button>
+    <br>
+    <img src="img2.png" alt="img2" width="220" height="220" id="img2" onmouseover="big()" onmouseout="original()">
+    <script>
+        function clickChange(){
+            document.querySelector('#header').style.color = 'red';
+            document.querySelector('#header').style.backgroundColor = 'black';
+            let img1 = document.querySelector('#img1');
+            img1.style.width = '400px';
+            img1.style.height = '400px';
+        }
+        function big(){
+            let img2 = document.querySelector('#img2');
+            img2.style.width ='400px';
+            img2.style.height ='400px';
+        }
+        function original(){
+            img2.style.width = '220px';
+            img2.style.height ='220px';
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="clock"></div>
+    <script>
+        // let now = new Date();
+        // document.write(now);
+        // let monthName = ['Jan','Feb','March','Apr','May','Jun','July','Aug','Sep','Oct','Nov','Dec'];
+        // document.write('<br>');
+        // document.write(monthName[now.getMonth()]);
+        // document.write('<br>')
+
+        function digitalClock(){
+            let timer = new Date();
+            let hour = timer.getHours();
+            let minute = timer.getMinutes();
+            let second = timer.getSeconds();
+            //document.write(second);
+            //document.write('<br>')
+            
+            document.getElementById('clock').innerHTML = `<h1>${hour} : ${minute} : ${second}</h1>`;
+        }
+       // digitalClock();
+       setInterval('digitalClock()',1000);
+       //digitalClock();
+    </script>
+</body>
+</html>

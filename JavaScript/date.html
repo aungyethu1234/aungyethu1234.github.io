@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <style>
+        #h1{
+            color : red;
+            letter-spacing : 4px;
+            text-align : center;
+            text-transform : uppercase;
+            font-size : 45px;
+            
+        }
+        #clock{
+            text-align: center;
+            color: blueviolet;
+            font-size : 25px;
+            letter-spacing : 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1" oncopy="copyRight()">Digital Clock</h1>
+    <div id="clock"></div>
+    <script>
+        function digitalClock(){
+            let timer = new Date();
+            let hour = timer.getHours();
+            let min = timer.getMinutes();
+            let sec = timer.getSeconds();
+            let clock =document.querySelector('#clock');
+            clock.innerHTML = `<h1>${hour} : ${min} : ${sec}</h1>`;
+        }
+        setInterval('digitalClock()',1000);
+        function copyRight(){
+            alert('You Cannot Copy This Text');
+        }
+    </script>
+</body>
+</html>
