@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+</head>
+<body>
+    <h1>Hello DOM</h1>
+    <script>
+        // console.log(document.all[0]);
+        // console.log(document.URL);
+        let h1 = document.createElement('h1');
+        let text = document.createTextNode('This is Heading 1');
+        let h1_element = h1.appendChild(text);
+        document.body.appendChild(h1_element);
+        h1.className = 'headname';
+
+        let old_h1 = document.querySelector('.headname');
+        let new_h1 = document.createElement('h1');
+        let new_text = document.createTextNode("This is new Heading");
+        let new_h1_element = new_h1.appendChild(new_text);
+        let body = h1_element.parentElement;
+        
+        body.replaceChild(new_h1_element,h1_element);
+        new_h1_element.style.color = "red";
+        // console.log(h1_element);
+        
+        
+    </script>
+</body>
+</html>

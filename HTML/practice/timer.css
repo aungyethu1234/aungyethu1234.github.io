@@ -1,0 +1,37 @@
+
+body {
+    background-color:rgb(19, 10, 22, 0.7);
+    
+}
+
+.clock {
+    font-size:55px;
+    text-align: center;
+    margin-top:50px;
+    margin-bottom:15px;
+    letter-spacing: 2px;
+    color:rgb(221, 235, 26);
+}
+
+.btnContainer {
+    max-width:58%;
+    margin:0 auto;
+    text-align: center;
+}
+.btn {
+    margin-left:4px;
+    background-color:skyblue;
+    color:white;
+    border:none;
+    border-radius: 4px;
+    padding:6px 9px;
+    cursor:pointer;
+    font-size:20px;
+
+}
+
+.footer {
+    text-align: center;
+    margin-top:300px;
+    display:none;
+}

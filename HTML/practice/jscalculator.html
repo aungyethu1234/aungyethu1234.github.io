@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="jscalculator.css">
+</head>
+<body>
+    <div class="inputContain">
+        <input type="text" readonly />
+    </div>
+    <div class="operator">
+        <button class="btn">&#43;</button>
+        <button class="btn">&#45;</button>
+        <button class="btn">&#215;</button>
+        <button class="btn">&#247;</button>
+    </div>
+    <div class="number">
+        <button class="btn">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+    </div>
+    <div class="number">
+        <button class="btn">4</button>
+        <button class="btn">5</button>
+        <button class="btn">6</button>
+    </div>
+    <div class="number">
+        <button class="btn">7</button>
+        <button class="btn">8</button>
+        <button class="btn">9</button>
+    </div>
+    <div class="number">
+        <button class="btn">0</button>
+        <button class="btn">.</button>
+        <button class="btn">C</button>
+        
+    </div>
+    <button class="equal">=</button>
+    <script>
+    let body = document.getElementsByTagName('body')[0];
+    let parent = document.createElement("div");
+    
+    let child1 = document.createElement("div");
+    child1.append("Child one");
+    let child2 = document.createElement("div");
+    child2.append("Child Two");
+    body.append(child1, child2);
+
+    console.log(body);
+    </script>   
+    
+
+            
+        
+
+
+</body>
+</html>

@@ -5,29 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+<style>
+    h1 {
+        text-align:center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .container {
+        width:75%;
+        margin-left:auto;
+        margin-right:auto;
+        
+        text-align: center;
+    }
+    .input {
+        display:inline-block;
+        width:40%;
+        height:25px;
+        margin-top:10px;
+        margin-bottom:10px;
+        outline:none;
+        
+        
+    }
+    
+    .num3 input {
+        margin-left:23px;
+    }
+    .btn {
+        margin-top:20px;
+        padding:10px 15px;
+        background-color:#95a5a6;
+        border:none;
+        border-radius:5px;
+        color:#130f40;
+        font-size:20px;
+        cursor:pointer;
+    }
+    
+</style>
 </head>
 <body>
     <h1>Calculator</h1>
     
-    <form>
-    <label for="num1">Number 1 :</label>
-    <input type="number" name="num1" id="num1">
-    <br><br>
-    <label for="num2">Number 2 :</label>
-    <input type="number" name="num2" id="num2">
-    <br><br>
-    <label for="result">Result : &nbsp; &nbsp;</label>
-    <input type="number" name="result" id="result" readonly>
-    <br><br>
-    <button onclick="add()">Add</button>
-</form>
+    <form class="container">
+        
+            <div class="num num1">
+                <label for="num1">Number 1 :</label>
+                <input type="number"  name="num1" id="num1" class="input">
+            </div>
+            
+            <div class="num num2">
+                <label for="num2">Number 2 :</label>
+                <input type="number" name="num2" id="num2" class="input">
+            </div>
+            
+            <div class="num num3">
+                <label for="result">Result : </label>
+                <input type="text" id="result" readonly class="input">
+            </div>
+        
+        
+        <button type="button" onclick="add()" class="btn">Add</button>
+    </form>
 <script>
-    function add(){
+    function add() {
     let num1 = document.querySelector('#num1').value;
     let num2 = document.querySelector('#num2').value;
-    console.log(num1,num2);
-    let result = Number(num1) + Number(num2);
-    console.log(result);
+    let result = (Number(num1) + Number(num2));
     document.querySelector('#result').value = result;
 }
 </script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-2 Selector</title>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ipsa saepe deleniti maiores amet molestiae tempore quo esse corporis nobis modi deserunt, eaque provident dicta, maxime reprehenderit odit consectetur ea?
+    </p>
+    <p class="mname">This is second p tag.</p>
+    <h2 class="mname">Aung Ye Thu</h2>
+    <!-- <button id="mybtn">Click Me</button> -->
+    <ul>
+        <li>First Year</li>
+        <li>Second Year</li>
+        <li>Third Year</li>
+        
+    </ul>
+    <section id="contents">
+        <ul class="people">
+            <li>Mg Mg</li>
+            <li>Aung Aung</li>
+            <li>Ko Ko</li>
+        </ul>
+    </section>
+
+    <section>
+        <p class="p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur in pariatur est laboriosam mollitia voluptatem ullam autem quis asperiores modi, natus earum voluptate dolores eum possimus quaerat quod fugit reprehenderit!</p>
+    </section>
+    
+    <form action="">
+        
+    </form>
+    
+    
+    
+    
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            var p = $("p");
+            console.log(p);
+
+            // class selector
+            var c = $(".mname");
+            console.log(c);
+
+            // id selector
+            var d = $("#mybtn");
+            console.log(d);
+
+            // conditon button element have or not
+            if(d.length) {
+                console.log("Button element is present")
+            } else {
+                console.log("Button element is not present");
+            }
+
+            // with element & class
+            var ec = $("h2.mname");
+            console.log(ec);
+
+            // first list of first ul
+            var f = $("ul li:first");
+            console.log(f);
+
+            // parent child selector
+            var pc = $("#contents ul.people li");
+            console.log(pc);
+
+            // Filtering Selection
+            var sectionWithP = $("section").has("p");
+            console.log(sectionWithP);
+
+            var secWithoutP = $("section").not(".p");
+            console.log(secWithoutP);
+
+            // working with form
+             })
+    </script>
+</body>
+</html>

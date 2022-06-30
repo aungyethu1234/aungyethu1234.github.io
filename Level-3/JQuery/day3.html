@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <button class="mybtn">Click Me</button>
+
+    <p class="myp">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis veniam aut mollitia saepe sunt doloremque obcaecati dicta totam laboriosam, possimus ratione in, enim eos rem asperiores itaque exercitationem vero id.</p>
+
+    <form action="">
+        <input type="text" name="username">
+        <br>
+        <input type="number" name="age" id="">
+        <br>
+        <input type="submit" value="save">
+    </form>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".myp").on("click",function () {
+                alert("Click the button");
+                console.log($(this)); // current element
+            })
+
+            // With callback
+            $("button").on("click", function () {
+                $("p").hide("slow", function () {
+                    alert("The paragraph is now hidden");
+                })
+            })
+
+            // without callback
+            // $("button").on("click", function () {
+            //     $("p").hide(1000);
+            //     alert("The paragrap is now hidden");
+            // })
+
+            // form submit
+            $("form").on("submit", function (e) {
+                var username = $("input[name = 'username']").val();
+                var age = $("input[name = 'age']").val();
+                console.log(age);
+                var err = false;
+                if(username.length < 5) {
+                    err = true;
+                }
+                if(age < 18) {
+                    err = true;
+                }
+                
+                if(err) {
+                    e.preventDefault();
+                }
+                
+            })
+        })
+    </script>
+</body>
+</html>

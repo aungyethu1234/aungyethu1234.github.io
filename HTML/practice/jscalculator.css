@@ -1,0 +1,25 @@
+.equal {
+    height:175px;
+    width:60px;
+    position:absolute;
+    top:90px;
+    left:200px;
+    right:300px;
+
+}
+
+.btn {
+    width:60px;
+    height:40px;
+    margin:4px 0 2px 0;
+    font-size:30px;
+}
+.inputContain input {
+    width:242px;
+    height:25px;
+    outline:none;
+}
+.operator button, .equal {
+    color:blue;
+    font-size:30px;
+}

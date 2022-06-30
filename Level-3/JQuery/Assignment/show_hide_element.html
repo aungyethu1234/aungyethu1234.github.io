@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/ Hide Element Assignment-1</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        input {
+            outline:none;
+            background-color: rgb(220,220,220);
+            border:none;
+        }
+
+        .inpWidth {
+            width:250px;
+            height:40px;
+            margin-top:10px;
+            margin-bottom:10px;
+            padding-left:20px;
+        }
+        .form {
+            text-align:center;
+            margin-top:20px;
+        }
+        .radioGroup {
+            margin-top:10px;
+        }
+        #married {
+            margin-left:40px;
+        }
+        #saveBtn {
+            width:70px;
+            height:40px;
+            border-radius:5px;
+            background-color: rgb(255,69,0);
+            font-size: 20px;
+        }
+        #saveBtn:hover {
+            cursor:pointer;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <h1>Show/hide element with JQuery Assignment-1</h1>
+    <div class="form">
+        <input type="text" name="name" class="inpWidth" placeholder="Name">
+        <br>
+        <input type="number" name="age" class="inpWidth" placeholder="Age">
+        <br>
+        <div class="radioGroup">
+            <input type="radio" name="gender" id="single">
+            <label for="single" id="singleLabel">Single</label>
+            <input type="radio" name="gender" id="married">
+            <label for="married" id="mLabel">Married</label>
+        </div>
+        <br>
+        <input type="text" name="spouse" placeholder="Spouse" class="inpWidth" id="showHide">
+        <br>
+        <input type="submit" name="save" value="Save" id="saveBtn">
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#showHide").hide();
+            $("#mLabel").on("click", function () {
+                $("#showHide").show('slow');
+            })
+
+            $("#singleLabel").on("click", function () {
+                $("#showHide").hide('slow');
+            })
+        })
+    </script>
+</body>
+</html>

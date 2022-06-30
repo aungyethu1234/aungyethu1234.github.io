@@ -1,0 +1,134 @@
+    <!DOCTYPE html>
+    <html >
+    <head>
+    <style type="text/css">
+        * {
+            margin:0;
+            padding:0;
+        }
+        body {
+            background-image:url("https://jolly-kalam-23776e.netlify.app/restaurantwebsite/assets/images/topography.svg"), linear-gradient(110deg, #f93d66, #6d47d9);
+            box-sizing:border-box;
+        }
+        .navContain {
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+            width:95%;
+            margin:0 auto;
+            margin-top:50px;
+            margin-bottom:30px;
+            text-align: center;
+            
+            
+        }
+
+        .navContain .tab {
+            display:inline-block;
+            width:17%;
+            line-height:40px;
+            background-color:yellow;
+            text-align:center;
+            text-transform: uppercase;
+            margin-left:8px;
+            margin-right:8px;
+            font-size:20px;
+            cursor:pointer;
+            user-select:none;
+
+        }
+        .carosalContainer {
+            display:grid;
+            grid-template-areas:
+            "photo1 photo2 photo3" 
+            "photo1 photo2 photo3";
+            grid-template-columns:1fr 20% 20%;
+            padding-left:30px;
+            padding-right:30px;
+            grid-gap:.5em;
+            
+        }
+       
+        .carosalContainer > div:first-child {
+            height:500px;
+            grid-column:1/3;
+            grid-row:1/3;
+            background-image:url("https://jolly-kalam-23776e.netlify.app/restaurantwebsite/images/taco.jpg");
+            object-fit: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width:100%;
+            object-position: 100%;
+
+        }
+        .carosalContainer > div:nth-child(2), :nth-child(3) {
+            background-color:#ffc600;
+            display:flex;
+            justify-content:center;
+            flex-direction:column;
+            align-items:center;
+        }
+        .imgBox .label {
+            color:black;
+            background-color:#ffc600;
+            margin-top:10px;
+            margin-bottom: 20px;
+            display: block;
+            padding:5px;
+            position:relative;
+            top:27%;
+            left:7%;
+
+        }
+        .imgBox .one {
+            width:250px;
+        }
+        .imgBox .two {
+            width:140px;
+        }
+        .itemContainer {
+            color:gray;
+            margin-top:10px;
+            width:90%;
+            height:100px;
+            
+        }
+        .itemContainer .item {
+            width:22.5%;
+            background-color:white;
+        }
+    
+        
+        
+        
+    </style>
+    </head>
+    <body>
+    <div class="navContain">
+        <div class="tab">tacos</div>
+        <div class="tab">beers</div>
+        <div class="tab">wines</div>
+        <div class="tab">desserts</div>
+        <div class="tab">reservations</div>
+    </div>
+
+    <div class="carosalContainer">
+        <div class="imgBox">
+            
+            <h1 class="label one">Terry's Taco Joint</h1>
+            <h4 class="label two">Prettry Good Tacos!</h4>
+        </div>
+        <div class="top">
+            <h2>$1.99</h2>
+            <small>Tacos</small>
+        </div>
+        <div class="bottom">
+            <h2>$3.99</h2>
+            <small>Kombucha</small>
+        </div>
+    </div>
+
+    
+    
+    </body>
+    </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type = 'button' id = 'button' onclick = 'checkInternet()'>Check internet status</button>
+    <div id = 'status'></div>
+
+    <script>
+        
+        let status = document.querySelector('#status');
+        let h1 = document.createElement('h1');
+        let online = 'Your online';
+        let offline = 'Your offline';
+
+        function checkInternet() {
+            if(window.navigator.onLine) {
+                h1.innerHTML = online;
+                status.appendChild(h1);
+            }
+            else {
+                h1.innerHTML = offline;
+                status.appendChild(h1);
+
+            }
+        }
+    </script>
+</body>
+</html>

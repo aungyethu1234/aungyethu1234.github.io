@@ -315,18 +315,21 @@
 .iconColor{
     color:#2b8ab8;
 }
-.contactform{
-    width:400px;
-    height:600px;
-    margin-left:170px;
-    margin-top:20px;
-    
-}
+
 .inputlabel{
     margin-bottom:8px;
     padding:16px 100px 2px 0;
+    width:250px;
     
 }
+.contactForm{
+    display:none;
+
+}
+.contactForm .h2{
+    margin-top:40px;
+}
+
 .inputlabel,.message{
     outline:none;
 }
@@ -341,11 +344,7 @@
     color:#2b8ab8;
     border:1px solid #2b8ab8;
 }
-.location{
-    position:absolute;
-    top:380px;
-    left:800px;
-}
+
 .aboutHead{
     width:100%;
     line-height:100px;
