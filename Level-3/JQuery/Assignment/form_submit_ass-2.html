@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form submit Assignment-2</title>
+    <style>
+        h1 {
+            text-align:center;
+            letter-spacing:2px;
+        }
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .hobbieContainer {
+            margin-top:4px;
+            font-weight: bold;
+            width:100%;
+            max-height:180px;
+            background-color: rgb(255,222,173);
+            padding:15px 15px;
+            border-radius:5px;
+            
+        }
+
+        input[type="text"] {
+            width:100%;
+            height:35px;
+            background-color: rgb(170,240,209);
+            outline:none;
+            border:none;
+            padding-left:20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+        }
+
+        .formContainer {
+            width:33%;
+            margin:40px auto;
+            
+        }
+
+        #box_1, #box_2, #box_3 {
+            margin-left:1.3em;
+        }
+
+        .btnContainer .btn {
+            width:100px;
+            height:40px;
+            padding:10px 10px;
+            border-radius:8px;
+            border:none;
+            background-color: rgb(255,69,0);
+            color:white;
+            font-size:1em;
+            letter-spacing: 1px;
+            margin-bottom:4px;
+        }
+
+        .btnContainer .btn:hover {
+            cursor:pointer;
+        }
+        .btnContainer {
+            margin-top:30px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="formContainer">
+        <h1>Assignment-2</h1>
+        <form action="">
+        <input type="text" name="name" id="name" placeholder="Name" required>
+
+        <div class="hobbieContainer">
+            <label for="">Hobbies: </label>
+            <div class="boxContainer">
+                <input type="checkbox" name="checkbox1" id="box_1" value="Reading">
+                <label for="box_1">Reading</label>
+
+                <input type="checkbox" name="checkbox2" id="box_2" value="Playing Guitar">
+                <label for="box_2">Playing Guitar</label>
+
+                <input type="checkbox" name="checkbox3" id="box_3" value="Game">
+                <label for="box_3">Game</label>
+            </div>
+            <div class="btnContainer">
+                <input type="submit" class="btn" value="Save">
+            </div>
+        </form>
+        </div>
+            
+        
+            
+        
+        
+    </div>
+    <script src="../jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("form").on("submit", function(event) {
+                event.preventDefault();
+                var name = $("input[type='text']").val();
+                var box_1 = $("input[name='checkbox1']:checked").val();
+                var box_2 = $("input[name='checkbox2']:checked").val();
+                var box_3 = $("input[name='checkbox3']:checked").val();
+                if(box_1 || box_2 || box_3) {
+                    if(box_1 && box_2 && box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_1}, ${box_2} and ${box_3}`);
+                    }
+                    if(box_1 && !box_2 && !box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_1}.`);
+                    }
+                    if(!box_1 && box_2 && box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_2} and ${box_3}`);
+                    }
+                    if(!box_1 && box_2 && !box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_2}.`);
+                    }
+                    if(!box_1 && !box_2 && box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_3}.`);
+                    }
+                    if(box_1 && box_2 && !box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_1} and ${box_2}.`);
+                    }
+                    if(box_1 && !box_2 && box_3) {
+                        alert(`Your Name is ${name} and your hobbies is ${box_1} and ${box_3}.`);
+                    }
+
+                }
+                else if (!box_1 && !box_2 && !box_3) {
+                    alert(`Your Name is ${name} and your hobbies is nothing.`);
+                }
+                
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Assignment-3</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            
+        }
+        .imageContainer {
+            width:45%;
+            height:35%;
+            margin:0 auto;
+            
+        }
+        .img {
+            width:100%;
+            height:100%;
+        }
+        .container {
+            display:flex;
+            justify-content: space-around;
+            /* flex-wrap:wrap; */
+            align-items: center;
+            width:80%;
+            margin:30px auto;
+            
+            
+        }
+        .itemContainer {
+            width:100%;
+            height:100%;
+            margin:10px auto;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            margin-top:20px;
+            margin-bottom:10px;
+        }
+        .lineContainer {
+            width:40%;
+            height:3px;
+            background-color: red;
+            margin: 8px auto;
+        }
+        .btn {
+            padding:13px;
+            border-radius:7px;
+            border:none;
+            background-color:rgb(138,43,226);
+            color:white;
+        }
+        .btn:hover {
+            cursor:pointer;
+        }
+        @media (max-width:992px) {
+            .container {
+                flex-direction: row;
+            }
+        }
+        @media (max-width:932px) {
+            .container {
+                flex-wrap:wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>My Products</h2>
+    <div class="lineContainer">
+
+    </div>
+    <div class="container">
+        
+        <div class="itemContainer">
+            
+            <div class="imageContainer">
+                <img src="images/img- (1).jpg" alt="" class="img">
+            </div>
+            <div class="labelContainer">
+                <h3>Dragon decoration men's belt</h3>
+            </div>
+            <div class="buttonContainer">
+                <button type="button" class="btn">Add to cart</button>
+            </div>
+        </div>
+
+        <div class="itemContainer">
+            
+            <div class="imageContainer">
+                <img src="images/img- (2).jpg" alt="" class="img">
+            </div>
+            <div class="labelContainer">
+                <h3>GIORDANO long Umbrellas</h3>
+            </div>
+            <div class="buttonContainer">
+                <button type="button" class="btn">Add to cart</button>
+            </div>
+        </div>
+
+        <div class="itemContainer">
+            
+            <div class="imageContainer">
+                <img src="images/img- (3).jpg" alt="" class="img">
+            </div>
+            <div class="labelContainer">
+                <h3>Nike Cap Full Logo Quality from Thailand</h3>
+            </div>
+            <div class="buttonContainer">
+                <button type="button" class="btn">Add to cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
