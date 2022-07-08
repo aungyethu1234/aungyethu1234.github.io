@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8 Local Storage</title>
+</head>
+<body>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function () {
+            var teachers = new Array();
+            var user = {
+                name: 'Aung Ye Thu',
+                age: 27,
+
+            }
+            teachers.push(user);
+            // localStorage.setItem('user',user); Object
+            localStorage.setItem('user', teachers);
+            localStorage.setItem('user', JSON.stringify(teachers)); // json string type
+
+
+            // var name = 'Aung Ye Thu';
+            // var age = 27;
+            // localStorage.setItem('name', name);
+            // localStorage.setItem('age', age);
+
+            // var name = localStorage.getItem(name);
+            // console.log(name);
+
+
+
+            // var teachers = new Array();
+            // var tph = {
+            //     name: 'Aung Ye Thu',
+            //     age: 27,
+            // }
+            // // var name = 'Aung Ye Thu';
+            // teachers.push(tph)
+            // localStorage.setItem('user', JSON.stringify(teachers));
+            // var user = localStorage.getItem('user');
+            // var userArr = JSON.parse(user)
+            // console.log(userArr);
+        })
+    </script>
+</body>
+</html>
