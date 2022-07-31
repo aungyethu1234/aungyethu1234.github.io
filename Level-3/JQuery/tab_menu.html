@@ -8,10 +8,11 @@
     <style>
         .Container .nav{
             display:flex;
-            justify-content:space-evenly;
+            justify-content:space-around;
             justify-items: center;
-            margin-top:20px;
+            margin-top:25px;
             align-items: center;
+            position:relative;
 
         }
         * {
@@ -48,6 +49,97 @@
         .para {
             padding:20px 0 20px 0;
         }
+        a[href]:hover {
+            color:rgb(72,209,204);
+        }
+
+        .products{
+            display:flex;
+            justify-content:space-evenly;
+            text-align: center;
+            gap:10px;
+            flex-wrap:wrap;
+            margin-top:20px;
+            width:100%;
+        }
+        .head {
+            text-align:center;
+        }
+        button.atcbtn {
+            border:none;
+            padding:10px;
+            border-radius:7px;
+            color:white;
+            background-color:#9c7c38;
+            border:2px solid #808000;
+            transition:all 1s;
+        }
+        button.atcbtn:hover {
+            cursor:pointer;
+            border:2px solid #8b0000;
+            
+        }
+        
+        
+
+        .images {
+            border-radius: 7px;
+            border:2px solid #deb887;
+            box-shadow:1px 4px 5px 0px rgba(0,0,0,0.75);
+            transition: all 1s;
+            
+        }
+        .images:hover {
+            transform: scale(1.1);
+            cursor:pointer;
+        }
+        .cartData {
+            text-align:center;
+        }
+        .table {
+            width:100%;
+        }
+        #cartItems {
+            text-align:center;
+        }
+        .delBtn {
+            color:white;
+            background-color:red;
+            border:none;
+        }
+        .delBtn,.minBtn,.plusBtn:hover {
+            cursor:pointer;
+            
+        }
+        .delBtn, .minBtn, .plusBtn {
+            padding:4px;
+            user-select: none;
+        }
+        .shopBtn {
+            text-align:center;
+            padding:10px;
+        }
+        .shopBtn .btn {
+            padding:10px;
+            cursor:pointer;
+            border-radius:10px;
+            border:none;
+            background-color:orange;
+            
+        }
+        
+        .qty {
+            position:absolute;
+            left:89.4%;
+            top:-23px;
+            background-color:red;
+            color:rgb(0,0,0,0.4);
+            width:2.5%;
+            border-radius:50%;
+            text-align: center;
+            user-select:none;
+            
+        }
         
     </style>
     <script src="jquery.min.js"></script>
@@ -60,7 +152,9 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#shop">Shop</a></li>
+            <li><a href="#shop" id="shopp">Shop</a></li>
+            <li><a href="#cart">Cart</a></li>
+            <h3 class="qty"></h3>
         </ul>
         <div class="contentContainer">
             <div class="content" id="home">
@@ -79,14 +173,55 @@
                 </p>
             </div>
             <div class="content" id="shop">
-                <h2>Shop Page</h2>
-                <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, ratione sequi illo nam provident maiores numquam aliquam quae corporis voluptas fuga magni modi odio, distinctio eligendi aliquid deserunt rem assumenda?
-                </p>
+                
+                <h2 class="head">Popular Products</h2>
+                <div class="products">
+                    <div class="item">
+                        <img src="Assignment/images/img1.jpg" alt="" class="images">
+                        <h4>Item One</h4>
+                        <p>1500 ks</p>
+                        <button class="atcbtn" data-id="1" data-name="Item one" data-price="1500">Add to cart</button>
+                    </div>
+
+                    <div class="item">
+                        <img src="Assignment/images/img1.jpg" alt="" class="images">
+                        <h4>Item Two</h4>
+                        <p>13400 ks</p>
+                        <button class="atcbtn" data-id="2" data-name="Item two" data-price="13400">Add to cart</button>
+                    </div>
+
+                    <div class="item">
+                        <img src="Assignment/images/img1.jpg" alt="" class="images">
+                        <h4>Item Three</h4>
+                        <p>4000 ks</p>
+                        <button class="atcbtn" data-id="3" data-name="Item three" data-price="4000">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="cart">
+                
+                <h2 class="cartData"></h2>
+                <div class="shopBtn"></div>
+                
+                <table border="1" cellspacing="0" cellpadding="0" class="table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cartItems">
+
+                        </tbody>
+                </table>
             </div>
         </div>
     </div>
     <!-- content  -->
-    
+    <script src="cart.js"></script>
     <script>
         $(function () {
             $('.content').first().slideDown();
@@ -107,5 +242,6 @@
         
         
     </script>
+   
 </body>
 </html>

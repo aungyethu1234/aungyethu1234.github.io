@@ -1,0 +1,38 @@
+.customnav-color {
+    background-color: #2f333a;
+}
+
+.mainColor {
+    color:#eb3e32;
+}
+
+.mainbgColor {
+    background-color: #eb3e32;
+}
+
+* {
+    font-family: qua;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: os;
+}
+.carousel-item img {
+    height:75vh;
+    object-fit:cover;
+}
+.btn-custom {
+    background-color:#eb3e32;
+    color:#fff;
+}
+.btn-custom:hover {
+    background-color:#bc3228;
+    border-color:#bc3228;
+    color:#fff;
+}
+.card img {
+    height:250px;
+}
+.instagram {
+    letter-spacing: 0.5em;
+}

@@ -1,0 +1,14 @@
+@font-face {
+    src:url('../fonts/Oswald/Oswald-VariableFont_wght.ttf');
+    font-family: 'os';
+}
+
+@font-face {
+    src:url('../fonts/Quattrocento_Sans/QuattrocentoSans-Regular.ttf');
+    font-family: 'qua';
+}
+
+@font-face {
+    src:url('../fonts/Taviraj/Taviraj-Regular.ttf');
+    font-family: 'ta';
+}

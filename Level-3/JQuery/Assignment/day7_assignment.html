@@ -9,77 +9,242 @@
         * {
             margin:0;
             padding:0;
+            
         }
         
         .container {
             width:70%;
             height:600px;
-            margin:20px auto;
+            margin:40px auto;
+            margin-top:40px;
+            margin-bottom:40px;
+            
+            
             /* background-color: rgb(0,255,255); */
         }
         .container .imgContainer {
             width:100%;
-            height:110px;
+            height:130px;
             overflow-x: auto;
             overflow-y: hidden;
             white-space: nowrap;
-            
-            
         }
-        .container .imgContainer .images {
+        /* .container .imgContainer .images {
             width:100%;
             height:fit-content;
             
-        }
-        .leftImg .currentImg {
-            width:100%;
-            float:left;
+        } */
+        .currentImg {
+            width:90%;
+            height:350px;
+            
         }
         .innerContainer {
             width:100%;
             margin-top:10px;
-            background-color: rgb(30,144,255);
+            background-color: rgb(70,130,180);
+            
+            
         }
         .leftImg {
             width:50%;
-            display: inline-block;
+            height:30%;
             margin-top:10px;
             margin-left:10px;
             border-radius: 20px;
         }
+        .leftImg , .inputContainer {
+            display:inline-block;
+        }
+        .images:hover {
+            cursor:pointer;
+            
+        }
+        .images {
+            margin-right:6px;
+            border:4px solid rgb(165,42,42);
+            position:relative;
+            
+        }
+        .inputContainer {
+            margin-top:20px;
+            /* background-color:red; */
+            width:50%;
+            position:absolute;
+            left:52%;
+        }
+        .btnContainer {
+            position:absolute;
+            left:55%;
+            top:70%;
+        }
+        .btn {
+            width:100px;
+            height:30px;
+            border-radius: 5px;
+            border:none;
+            margin-left:4px;
+            font-size: 1em;
+            box-shadow: -1px 21px 15px -14px rgba(0,0,0,0.75);
+
+        }
+        .btn:hover {
+            cursor:pointer;
+            
+        }
+        #generate {
+            color:#0000ff;
+        }
+        #generate:hover {
+            border:1px solid #ff0000;
+            background-color: white;
+            color:red;
+            
+        }
+        #download {
+            color:#8b008b;
+        }
+        #download:hover {
+            border:1px solid green;
+            color:#560319;
+        }
+        .text_input {
+            width:200px;
+            height:25px;
+            outline:none;
+            border-radius:5px;
+            border:none;
+            margin-left:10px;
+            margin-bottom:10px;
+        }
+        
+        
+        
+        
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" aria-hidden="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js" aria-hidden="true"></script>
 </head>
 <body>
     <div class="container">
         <div class="imgContainer">
-            <img alt="" class="images">
-            
+            <!-- <img alt="" class="images"> -->
         </div>
         <div class="innerContainer" >
-            <div class="leftImg"> <img src="" alt="" class="currentImg"></div>
-            <div class="input">Inputs</div>
-            <span class="btn"><button>Generate</button></span>
+            <div class="leftImg"> <img src="" alt="" class="currentImg">  </div>
+            <div class="inputContainer">
+            </div>
+            <div class="btnContainer">
+                <button class="btn" type="button" id="generate">Generate</button>
+                <button class="btn" type="button" id="download">Download</button>
+            </div>
         </div>
+        
+        
     </div>
+    
     <script src="../jquery.min.js"></script>
     <script>
         $(function () {
             $.get("https://api.imgflip.com/get_memes", function (resp) {
+                if(resp.success) {
                 data = '';
                 var memes = resp.data.memes;
                 var count = 0;
-                for (const row of memes) {
-                    var img = `<img src="${row.url}" width='100' height='100'>`;
-                    data += img;
+                for (var row of memes) {
+                    var images = `<img src="${row.url}" width='100' height='100' class="images" data-id="${row.id}" data-name="${row.name}" data-box="${row.box_count}">`;
+                    data += images;
+                    $(".imgContainer").html(data);
                     count++;
                     if (count == 1) {
-                        $(".currentImg").attr("src",row.url);
+                        $(".currentImg").attr("src", row.url);
+                        $(".currentImg").attr("id", row.id);
+                        for(var i = 0; i < row.box_count; i++) {
+                            var input;
+                            input += `<input type='text' class="text_input"><br>`;
+                            $(".inputContainer").html(input);
+
+                        }
                     }
                 }
-                $(".imgContainer").html(data);
+                
+                }
+
+                $(".images").on("click", function() {
+                    var url = $(this).attr("src");
+                    var name = $(this).data("name");
+                    var id = $(this).data("id");
+                    var input_box = $(this).data("box");
+                    // console.log(url);
+                    $(".currentImg").attr("src", url);
+                    $(".currentImg").attr("id", id);
+                    var series = 1;
+                    for(var a = 0; a < input_box; a++) {
+                        var inputs;
+                        inputs += `<input type="text" class="text_input" placeholder="text ${series++}"><br>`;
+                    }
+                    $(".inputContainer").html(inputs);
+                    
+                    
+                })
             })
 
+            $("#generate").on("click", function() {
+                var ids = $(".currentImg").attr("id");
+                // console.log(ids);
+                var texts = $.map($(".text_input"), function(input) {
+                    return {
+                        text: input.value,
+                    };
+                    
+                });
+                console.log(texts);
+                $.post("https://api.imgflip.com/caption_image",
+                    {
+                        template_id : `${ids}`,
+                        username: "AungYeThu",
+                        password: "Password",
+                        boxes: texts,
+                    }, function (resp) {
+                        // console.log(resp.data);
+                        if(resp.success) {
+                            var image = `<img src=${resp.data.url} class="images" data-id=${resp.data.id} data-name=${resp.data.name}`;
+                            $(".currentImg").attr('src', resp.data.url);
+                        }
+                    }
+                )
+            });
+
+            $("#download").on("click", function() {
+                var imgUrl = $(".currentImg").attr("src");
+                var imgName = $(".currentImg").attr("data-name");
+                Swal.fire({
+                    title: `${imgName}`,
+                    text: "Do you want to download",
+                    imageUrl: `${imgUrl}`,
+                    imageWidth: 400,
+                    imageHeight: "auto",
+                    showCancelButton: true,
+                    cancelButtonColor: "red",
+                    confirmButtonText: "Download",
+
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var saveImg = `${imgName}.png`;
+                        saveAs(imgUrl, saveImg);
+
+                    } else if (result.isDismissed) {
+                        return;
+                    }
+                })
+                // console.log("hello");
+            })
+            
+            
+            
+            
         })
+        
     </script>
 </body>
 </html>
