@@ -34,6 +34,7 @@
         }
         .ftAndInch {
             margin-left:4px;
+            
         }
         .weight {
             margin-left:3px;
@@ -92,6 +93,16 @@
         ul {
             list-style-position: inside;
         }
+        @media only screen and (max-width: 375px) {
+                
+                .inputContain {
+                    width:80%;
+                    margin:0 auto;
+                }
+                .ftAndInch {
+                    margin-bottom: 4px;
+                }
+        }
         
     </style>
 </head>
@@ -127,16 +138,16 @@
                     </div>
                     
                     <div v-if="normal">
-                        <p id="normal" class="info">Your normal weight</p>
+                        <p id="normal" class="info">You are normal weight</p>
                     </div>
                     <div v-if="underweight">
-                        <p id="underweight" class="info">Your underweight</p>
+                        <p id="underweight" class="info">You are underweight</p>
                     </div>
                     <div v-if="overweight">
-                        <p id="overweight" class="info">Your overweight</p>
+                        <p id="overweight" class="info">You are overweight</p>
                     </div>
                     <div v-if="obesity">
-                        <p id="obesity" class="info">Your obesity</p>
+                        <p id="obesity" class="info">You are obesity</p>
                     </div>
                     
                     
