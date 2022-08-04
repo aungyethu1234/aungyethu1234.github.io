@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        body {
+            background-color: gray;
+        }
+        h1 {
+            text-align:center;
+            color:darkgreen;
+        }
+        .container {
+            width:80%;
+            margin:4px auto;
+            
+        }
+        .inputContain {
+            width:55%;
+            margin:0 auto;
+            border:2px solid black;
+            border-radius: 5px;
+            padding:15px;
+            
+        }
+        .ftAndInch {
+            margin-left:4px;
+        }
+        .weight {
+            margin-left:3px;
+            margin-top:4px;
+        }
+        .input, button, .foot {
+            width:75%;
+            margin:0 auto;
+            display: block;
+        }
+        button {
+            padding:8px 6px;
+            margin-top:20px;
+            border-radius:7px;
+            border:none;
+            cursor:pointer;
+            background-color:darkblue;
+            color:white;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            border:1px solid white;
+        }
+        input {
+            outline:none;
+            border:none;
+            border-radius:5px;
+            padding:6px 4px;
+            user-select: none;
+        }
+        #normal {
+            color:darkblue;
+            
+        }
+        #underweight {
+            color:darkgreen;
+            
+        }
+        #overweight {
+            color:orange;
+            
+        }
+        #obesity {
+            color:red;
+           
+        }
+        .info {
+            text-align:center;
+            margin-top:5px;
+            font-size: 2.5em;
+        }
+        h2 {
+            margin-top:10px;
+        }
+        ul {
+            list-style-position: inside;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>{{title}}</h1>
+            <div class="inputContain">
+                <div class="input">
+                    <label for="h">Height:</label>
+                    <input type="number" v-model="ft" id="h" placeholder="ft" class="ftAndInch">
+                    <input type="number" v-model="inch" placeholder="inch" class="ftAndInch"><br>
+                    <label for="">weight:</label>
+                    <input type="number" v-model="weight" placeholder="pound" class="weight"><br>
+                    <button type="button" @click='showResult()'>Compute</button><br>
+                    <div class="foot">
+                        <label for=""> Your BMI:</label>
+                        <input type="number" name="" id="" readonly v-model="result">
+                        
+                            <h2>BMI Categories:</h2>
+                            <ul>
+                                <li>Underweight = &lt;18.5</li>
+                                <li>Normal weight = 18.5–24.9</li>
+                                <li>Overweight = 25–29.9</li>
+                                <li>Obesity = BMI of 30 or greater</li>
+                            </ul>
+                                
+                                
+                                
+                                
+                            
+                        
+                    </div>
+                    
+                    <div v-if="normal">
+                        <p id="normal" class="info">Your normal weight</p>
+                    </div>
+                    <div v-if="underweight">
+                        <p id="underweight" class="info">Your underweight</p>
+                    </div>
+                    <div v-if="overweight">
+                        <p id="overweight" class="info">Your overweight</p>
+                    </div>
+                    <div v-if="obesity">
+                        <p id="obesity" class="info">Your obesity</p>
+                    </div>
+                    
+                    
+                        
+                    
+                    
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+<script src="main.js"></script>
+<script>
+    const bmiApp = app2.mount("#app");
+</script>
+</body>
+</html>

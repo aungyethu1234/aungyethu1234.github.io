@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- {{ message }} -->
+        <p>name is {{name}} and age is {{age}}</p>
+        <!-- v-bind short-hand (:) -->
+        <span v-html="message"></span>
+        <!-- Arrtibute binding -->
+        <img v-bind:src="photo" alt="">
+        <!-- if else condition -->
+        <p v-if="seen">Now you see me</p>
+        <!-- List Rendering (Looping) -->
+        <div v-if="colors.length > 0">
+            <ul>
+                <li v-for="color in colors">{{color}}</li>
+            </ul>
+        </div>
+        <div v-else>
+            <p>Now other see me</p>
+        </div>
+        <ol>
+            <li v-for="(item, index) in students">
+                <strong>{{index}}</strong>{{item.name}}-{{item.age}}-{{item.gender}}
+            </li>
+        </ol>
+        <!-- Envent -->
+        <p>Count is {{count}}</p>
+        <button @click="count++">Add 1</button>
+
+        <button @click="openAlert">Open box</button>
+
+        <!-- input Binding -->
+        <input type="text" id="" v-model="username">
+        <p>{{username}}</p>
+        <input v-model.number="age">
+    </div>
+    
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
+</body>
+</html>
+
+
+
+
+
+

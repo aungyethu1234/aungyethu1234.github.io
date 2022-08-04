@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest Country</title>
+    
 </head>
 <body>
-    <script src="../jquery.min.js"></script>
     
+    <script src="../jquery.min.js"></script>
     <script>
         $(function() {
-           $.get("https://fakestoreapi.com/products", function(data) {
-            
-                console.log(data);
+           $.get("https://restcountries.com/v2/all", function(resp) {
+                if(resp.success) {
+                    console.log(resp[0]);
+                }
+                    
             
            }) 
 
@@ -21,5 +24,6 @@
             
         })
     </script>
+    
 </body>
 </html>

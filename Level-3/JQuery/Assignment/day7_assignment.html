@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 7 Assignment</title>
     <style>
+        body {
+            font-family: "pyidaungsu";
+        }
         * {
             margin:0;
             padding:0;
@@ -131,6 +134,7 @@
             <!-- <img alt="" class="images"> -->
         </div>
         <div class="innerContainer" >
+            <div class="title"></div>
             <div class="leftImg"> <img src="" alt="" class="currentImg">  </div>
             <div class="inputContainer">
             </div>
@@ -155,35 +159,46 @@
                     var images = `<img src="${row.url}" width='100' height='100' class="images" data-id="${row.id}" data-name="${row.name}" data-box="${row.box_count}">`;
                     data += images;
                     $(".imgContainer").html(data);
+                    
                     count++;
                     if (count == 1) {
                         $(".currentImg").attr("src", row.url);
                         $(".currentImg").attr("id", row.id);
+                        n = $(".currentImg").attr("name", row.name);
+                        
+                        
                         for(var i = 0; i < row.box_count; i++) {
                             var input;
                             input += `<input type='text' class="text_input"><br>`;
-                            $(".inputContainer").html(input);
+                            
 
                         }
+                        $(".inputContainer").html(input);
+                        $(".title").html(row.name);
                     }
+                    
                 }
                 
                 }
 
                 $(".images").on("click", function() {
                     var url = $(this).attr("src");
-                    var name = $(this).data("name");
+                    // var name = $(this).data("name");
+                    var name = $(this).attr("name");
                     var id = $(this).data("id");
                     var input_box = $(this).data("box");
-                    // console.log(url);
+                    console.log(url);
+                    // console.log(name);
                     $(".currentImg").attr("src", url);
                     $(".currentImg").attr("id", id);
+                    
                     var series = 1;
                     for(var a = 0; a < input_box; a++) {
                         var inputs;
                         inputs += `<input type="text" class="text_input" placeholder="text ${series++}"><br>`;
                     }
                     $(".inputContainer").html(inputs);
+                    $(".title").html(name);
                     
                     
                 })
@@ -210,6 +225,8 @@
                         if(resp.success) {
                             var image = `<img src=${resp.data.url} class="images" data-id=${resp.data.id} data-name=${resp.data.name}`;
                             $(".currentImg").attr('src', resp.data.url);
+                            $(".currentImg").attr('name', row.name);
+
                         }
                     }
                 )
@@ -217,7 +234,8 @@
 
             $("#download").on("click", function() {
                 var imgUrl = $(".currentImg").attr("src");
-                var imgName = $(".currentImg").attr("data-name");
+                var imgName = $(".currentImg").attr("name");
+                
                 Swal.fire({
                     title: `${imgName}`,
                     text: "Do you want to download",

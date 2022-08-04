@@ -30,9 +30,44 @@ h1, h2, h3, h4, h5, h6 {
     border-color:#bc3228;
     color:#fff;
 }
+
 .card img {
     height:250px;
 }
-.instagram {
+
+.instagram-text {
     letter-spacing: 0.5em;
+}
+
+#newsletter {
+    background: url('../images/slide3.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    
+}
+
+.graycolor {
+    color:gray;
+}
+
+.facebook {
+    color:#3c5b9b;
+}
+.twitter {
+    color:#40c1df;
+}
+
+.instagram {
+    color: #c619b8;
+}
+.googleplus {
+    color:#ed3c32;
+}
+.dribbble {
+    color:#c72982;
+}
+.tiktok {
+    color:#000000;
+}
+.pinterest {
+    color:#e60023;
 }
