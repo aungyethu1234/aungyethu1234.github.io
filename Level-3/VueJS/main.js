@@ -49,29 +49,17 @@ const app2 = Vue.createApp({
         if(this.ft == '' || this.weight == '') {
           if(this.ft == '' && this.weight == '') {
             alert("Please enter feet and weight");
-            this.result = '';
-            this.normal = false;
-            this.overweight = false;
-            this.underweight = false;
-            this.obesity = false;
+            this.hideElement();
             return;
           }
           if(this.ft == '' && this.weight != '') {
             alert("Please enter feet")
-            this.result = '';
-            this.normal = false;
-            this.overweight = false;
-            this.underweight = false;
-            this.obesity = false;
+            this.hideElement();
             return;
           }
           if(this.ft != '' && this.weight == '') {
             alert("Please enter weight");
-            this.result = '';
-            this.normal = false;
-            this.overweight = false;
-            this.underweight = false;
-            this.obesity = false;
+            this.hideElement();
             return;
           }
           
@@ -108,5 +96,12 @@ const app2 = Vue.createApp({
        
 
     },
+    hideElement() {
+            this.result = '';
+            this.normal = false;
+            this.overweight = false;
+            this.underweight = false;
+            this.obesity = false;
+    }
   }
 });
