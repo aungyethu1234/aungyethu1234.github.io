@@ -105,3 +105,34 @@ const app2 = Vue.createApp({
     }
   }
 });
+const app3 =  Vue.createApp({
+  data() {
+    return {
+      // age: Number,
+      // isButtonDisabled:true,
+      // isInputDisabled:true,
+      // mark: 50,
+      // isActive: true,
+      // hasError: false,
+      students: [
+        {name: 'Mg Mg', age: 22, gender: 'male'},
+        {name: 'Su Su', age: 23, gender: 'female'},
+        {name: 'Bo Bo', age: 20, gender: 'male'}
+      ]
+      
+    }
+  },
+  methods: {
+    mybtn() {
+      if(this.age >= 18) {
+        this.isInputDisabled = false;
+      }
+    },
+
+    validate(i) {
+      var i = --i;
+      alert(`My name is ${this.students[i].name} , my age is ${this.students[i].age} and I am ${this.students[i].gender}.`);
+    },
+  }
+  
+});

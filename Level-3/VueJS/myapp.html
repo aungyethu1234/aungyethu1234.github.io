@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .text-danger {
+            color:red;
+        }
+        h1 {
+            text-align:center;
+            margin-top:15px;
+            color:darkblue;
+        }
+        table , tr, td, th {
+            border: 2px solid skyblue;
+        }
+        table {
+            border-collapse: collapse;
+            width:80%;
+            height:300px;
+            margin:10px auto;
+        }
+        th, td {
+            padding:6px;
+            text-align:center;
+        }
+        th {
+            font-size: 1.2em;
+            height:60px;
+        }
+        @media only screen and (min-width: 768px) {
+           td {
+            font-size:large;
+           }
+           
+           
+        }
+        @media only screen and (max-width: 768px) {
+            table {
+                width:70%;
+            }
+        }
+
+        
+
+        button {
+            padding:10px 20px;
+            cursor:pointer;
+            background-color: darkblue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Boolean Attributes
+        <button :disabled="isButtonDisabled"></button>
+
+        <input type="number" name="age" id="age" v-model="age">
+        <button @click="mybtn">Mybtn</button>
+
+        conditional Rendering
+        <p v-if="mark >= 40 && mark <=79">Pass</p>
+        <p v-else-if="mark < 40">Fail</p>
+        <p v-else>D</p>
+
+        Envent Modifier
+        <form action="" method="post" @submit.prevent ="validate">
+            <input type="text" name="username" id="username">
+            <br>
+            <input type="email" name="email" id="email">
+            <br>
+            <input type="submit" value="Save">
+        </form>
+
+        Binding Objects
+        <p :class="{active: isActive, 'text-danger': hasError}">Hello Vue</p> -->
+
+        <h1>List Rendering</h1>
+        <div v-if="students.length>1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(student, index) in students">
+                        <td>{{++index}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.gender}}</td>
+                        <td>
+                            <button @click="validate(index)">Detail</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        const mountedApp = app3.mount("#app");
+    </script>
+</body>
+</html>
