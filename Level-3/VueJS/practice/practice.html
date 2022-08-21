@@ -4,19 +4,151 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VueJs</title>
+    <title>Practice Vue.js</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color:#58B19F;
+        }
+        h1 {
+            text-align: center;
+            color:rgb(0,0,0,0.5);
+        }
+        .container {
+            max-width:600px;
+            margin:20px auto;
+            /* background-color: rgb(169,169,169); */
+            
+            
+        }
+        .lists {
+            width:80%;
+            margin:0 auto;
+            
+            
+            
+        }
+        input {
+            display:block;
+            width:100%;
+            margin:10px auto;
+            height:35px;
+            outline:none;
+            border:none;
+            border-radius:5px;
+            padding-left:7px;
+        }
+        input:focus {
+            border:2px solid rgb(0,0,0,0.5);
+        }
+        .showBtn {
+            padding:10px 22px;
+            margin-left:15px;
+            border-radius: 5px;
+            border:none;
+            background-color:darkblue;
+            color:white;
+            margin:0 auto;
+            display:block;
+        }
+        .showBtn:hover {
+            border:0.4px solid white;
+        }
+        .inputWithBtn {
+            width:80%;
+            margin:0 auto;
+        }
+        .tasks {
+            width:80%;
+            margin:0 auto;
+            text-align:left;
+        }
+        ol li {
+            width:100%;
+            color:rgb(0,0,0);
+            margin:30px auto;
+            list-style-position: inside;
+            font-size:1.2em;
+            
+        }
+        .btn {
+            padding:10px 15px;
+            margin-left:7px;
+            border:none;
+            border-radius: 5px;
+            height:35px;
+        }
+        #delBtn {
+            border:1px solid red;
+            color:red;
+            background-color: rgb(220,220,220);
+        }
+        #editBtn {
+            background-color: green;
+            color:white;
+            padding:10px 20px;
+            letter-spacing: 0.5px;
+        }
+        #editBtn:hover {
+            border:1px solid white;
+        }
+        #delBtn:hover {
+            background-color: red;
+            color:white;
+        }
+        @media screen and (max-width: 375px) {
+                ol li {
+                    width:130%;
+                }
+                .container {
+                    max-width: 700px;
+                }
+        }
+        @media screen and (max-width: 320px) {
+            ol li {
+                width:140%;
+            }
+            .container {
+                    max-width: 650px;
+                }
+        }
+    </style>
     
 </head>
 <body>
     <div id="app">
-        <p>My name is {{name}} and age is {{age}}</p>
-        <button @click="doAlert"></button>
+        <div class="container">
+            <div class="lists">
+                <h1>To-do lists</h1>
+                <div class="inputWithBtn">
+                    <input type="text" v-model="userInput" @keyup.enter="showData" placeholder="Input task">
+                    <button @click ="showData" class="showBtn">Add</button>
+                </div>
+                <div v-if="toDoItem.length > 0" class="tasks">
+                    
+                        <ol>
+                            <li v-for="(item, index) in toDoItem">
+                                {{item}}
+                                <button @click="doDelete(index)" class="btn" id="delBtn">Delete</button>
+                                <button @click="doEdit(index)" class="btn" id="editBtn">Edit</button>
+                            </li>
+                        </ol>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
     
     <script src="practice.js"></script>
     <script>
-        var ManageApp = app.mount('#app');
+        var ManageApp = app4.mount('#app');
     </script>
 </body>
 </html>

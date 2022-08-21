@@ -30,7 +30,7 @@ const app =  Vue.createApp({
 const app2 = Vue.createApp({
   data() {
     return {
-      title:'BMI calculator',
+      title:'BMI Calculator',
       ft:'',
       inch:'',
       result:'',
@@ -136,3 +136,116 @@ const app3 =  Vue.createApp({
   }
   
 });
+
+const app4 =  Vue.createApp({
+  data() {
+    return {
+      status:true,
+      items:Array(),
+      name:"Aung Ye Thu",
+    }
+  },
+  mounted() {
+    // this.name = this.name.split('').reverse().join('');
+    //console.log(`the component is now mounted`);
+    axios.get("https://api.imgflip.com/get_memes")
+    .then(response => {
+      console.log(response.data)
+      if(response.data.success == true) {
+        this.items = response.data.data.memes
+      }
+    })
+    
+    .catch(err => {
+      console.log(err);
+    })
+  },
+  methods: {
+   
+
+    
+  }
+  
+});
+
+const app5 =  Vue.createApp({
+  data() {
+    return {
+      students: [
+        {name: 'Mg Mg', age: 16, gender:'male'},
+        {name: 'Su Su', age: 23, gender:'female'},
+        {name: 'Bo Bo', age: 16, gender:'male'},
+      ],
+      arr:Array(),
+      
+    }
+  },
+  
+  methods: {
+   
+    
+  },
+  computed: {
+    boys() {
+      return this.students.filter(row => row.gender == 'male');
+    },
+
+    adults() {
+      return this.students.filter(row => row.age >= 18);
+    }
+  }
+  
+});
+
+const app6 =  Vue.createApp({
+  data() {
+    return {
+      show:true,
+      test:"Hello Vue",
+      isBlue:'true',
+      isSkyblue:'',
+    }
+  },
+  mounted() {
+        axios.get("https://restcountries.com/v3.1/all")
+        .then(data => {
+          console.log(data);
+          if(data.success) {
+            this.arr = data;
+            console.log(this.arr);
+          }
+        })
+  },
+  
+  methods: {
+      changeBackground() {
+
+      }
+    
+  },
+  computed: {
+    
+  }
+  
+});
+
+const app7 =  Vue.createApp({
+  data() {
+    return {
+      data:'',
+    }
+  },
+  mounted() {
+        
+  },
+  
+  methods: {
+      
+    
+  },
+  computed: {
+    
+  }
+  
+});
+

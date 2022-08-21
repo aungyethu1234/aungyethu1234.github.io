@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
     <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     
     <style>
         * {
             margin:0;
             padding:0;
         }
-        body {
+        /* body {
             background-color: gray;
         }
         h1 {
@@ -102,13 +103,30 @@
                 .ftAndInch {
                     margin-bottom: 4px;
                 }
+        } */
+        body {
+            background-color: rgb(208, 211, 212);
         }
-        
+        .input-gp {
+            background-color: rgb(234, 242, 248 );
+            border-radius:7px;
+        }
+        .form-control {
+            border-color: rgb(128, 139, 150);
+            background-color: white;
+        }
+        .form-control:focus {
+            outline-color: none;
+        }
+        .custom-bg {
+            background-color:white;
+            border-radius:7px;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <div class="container">
+        <!-- <div class="container">
             <h1>{{title}}</h1>
             <div class="inputContain">
                 <div class="input">
@@ -117,7 +135,7 @@
                     <input type="number" v-model="inch" placeholder="inch" class="ftAndInch"><br>
                     <label for="">weight:</label>
                     <input type="number" v-model="weight" placeholder="pound" class="weight"><br>
-                    <button type="button" @click='showResult()'>Compute</button><br>
+                    <button type="button" @click='showResult()'>Calculate</button><br>
                     <div class="foot">
                         <label for=""> Your BMI:</label>
                         <input type="number" name="" id="" readonly v-model="result">
@@ -129,12 +147,6 @@
                                 <li>Overweight = 25–29.9</li>
                                 <li>Obesity = BMI of 30 or greater</li>
                             </ul>
-                                
-                                
-                                
-                                
-                            
-                        
                     </div>
                     
                     <div v-if="normal">
@@ -150,12 +162,44 @@
                         <p id="obesity" class="info">You are obesity</p>
                     </div>
                     
-                    
-                        
-                    
-                    
-                    
                 </div>
+                
+            </div>
+            
+        </div> -->
+        <div class="container mt-3">
+            <div class="row g-3">
+                <div class="col-lg-5 col-xxl-5 col-md-5 col-sm-12 input-gp mx-auto shadow px-4 ">
+                    <h1 class="text-center mt-3 text-muted">{{title}}</h1>
+                      <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Ft">
+                      </div>
+                      <div class="mb-3">
+                        <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Inch (optional)">
+                      </div>
+                      <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Weight</label>
+                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Pound">
+                        <div class="col-6 mx-auto text-center pt-3 pb-2">
+                            <button type="button" class="btn btn-primary text-center">Calculate</button>
+                        </div>
+                      </div>
+
+                </div>
+                
+                <div class="col-lg-5 col-md-5 col-sm-12 custom-bg mx-auto shadow px-4 col-xxl-5">
+                            <h2 class="text-center mt-3 text-primary">BMI Categories:</h2>
+                            <ul class="mt-3">
+                                <li class="text-primary">Underweight = &lt;18.5</li>
+                                <li class="text-success">Normal weight = 18.5–24.9</li>
+                                <li class="text-warning">Overweight = 25–29.9</li>
+                                <li class="text-danger">Obesity = BMI of 30 or greater</li>
+                            </ul>
+                </div>
+                
+                
+                
                 
             </div>
             
@@ -166,5 +210,6 @@
 <script>
     const bmiApp = app2.mount("#app");
 </script>
+<script src="bootstrap/js/bootstrap.bundle.js"></script>
 </body>
 </html>
