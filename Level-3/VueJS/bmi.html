@@ -173,16 +173,16 @@
                     <h1 class="text-center mt-3 text-muted">{{title}}</h1>
                       <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Height</label>
-                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Ft">
+                        <input type="number" class="form-control" id="formGroupExampleInput" v-model="ft" placeholder="Ft">
                       </div>
                       <div class="mb-3">
-                        <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Inch (optional)">
+                        <input type="number" class="form-control" id="formGroupExampleInput2" v-model="inch" placeholder="Inch (optional)">
                       </div>
                       <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Weight</label>
-                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Pound">
+                        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Pound" v-model="weight">
                         <div class="col-6 mx-auto text-center pt-3 pb-2">
-                            <button type="button" class="btn btn-primary text-center">Calculate</button>
+                            <button type="button" class="btn btn-primary text-center" @click="showResult">Calculate</button>
                         </div>
                       </div>
 
@@ -196,6 +196,23 @@
                                 <li class="text-warning">Overweight = 25–29.9</li>
                                 <li class="text-danger">Obesity = BMI of 30 or greater</li>
                             </ul>
+                            <div class="container mx-auto text-center">
+                                <label for="" class="fs-2"> Your BMI:</label>
+                                <input type="number" class="form-control text-center mt-2 fw-bold" name="" id="" readonly v-model="result">
+                            </div>
+                            <div v-if="normal">
+                                <h1 class="text-success mt-3 text-center fs-sm-4">You are normal weight</h1>
+                            </div>
+                            <div v-if="underweight">
+                                <h1 class="text-info mt-3 text-center">You are underweight</h1>
+                            </div>
+                            <div v-if="overweight">
+                                <h1 class="text-warning mt-3 text-center">You are overweight</h1>
+                            </div>
+                            <div v-if="obesity">
+                                <h1 class="text-danger mt-3 text-center">You are obesity</h1>
+                            </div>
+                            
                 </div>
                 
                 
